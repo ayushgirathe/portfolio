@@ -55,14 +55,7 @@ const Nav = () => {
         >
           <FaGithub />
         </a>
-        <a 
-          href="https://x.com/thicccaadu" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-neutral-300 hover:text-blue-400 transition-colors duration-300"
-        >
-          <FaTwitter />
-        </a>
+        
         <a 
           href="https://www.instagram.com/_.ayushhh/" 
           target="_blank" 

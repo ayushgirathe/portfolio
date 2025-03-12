@@ -1,34 +1,59 @@
-import React from 'react';
-import { motion } from 'framer-motion'; // Import motion from framer-motion
+import React, { useState } from "react";
+import { motion } from "framer-motion"; 
+import emailjs from "@emailjs/browser"; 
 
-// Define animation variants
 const formVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
-  }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
 };
 
 const buttonVariants = {
   hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.8, ease: "easeOut", delay: 0.5 }
-  }
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut", delay: 0.5 } }
 };
 
 const Contact = () => {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        "service_2wlhwh5", // Replace with your EmailJS Service ID
+        "template_84tlvg4", // Replace with your EmailJS Template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        "OPyWerjRBGin63hy9" // Replace with your EmailJS Public Key
+      )
+      .then(
+        () => {
+          setStatusMessage("Message sent successfully! ✅");
+          setFormData({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          setStatusMessage("Failed to send message ❌. Try again later.");
+          console.error("EmailJS Error:", error);
+        }
+      );
+  };
+
   return (
     <div id="contact" className="py-8">
-      {/* Form Animation */}
       <motion.form
         className="relative bg-[#0A0A0A] border-4 border-gray-700 rounded-xl overflow-hidden p-4 md:p-6 mx-auto max-w-md mt-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
         initial="hidden"
         animate="visible"
         variants={formVariants}
+        onSubmit={sendEmail} // Handle form submission
       >
         <div className="px-4 py-6 md:px-6">
           <h2 className="text-2xl font-extrabold text-center text-white">
@@ -43,6 +68,9 @@ const Contact = () => {
                 name="name"
                 id="name"
                 type="text"
+                value={formData.name}
+                onChange={handleChange}
+                required
               />
             </div>
             <div className="mt-4">
@@ -53,6 +81,9 @@ const Contact = () => {
                 name="email"
                 id="email"
                 type="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
               />
             </div>
             <div className="mt-4">
@@ -63,10 +94,12 @@ const Contact = () => {
                 name="message"
                 id="message"
                 rows="3"
+                value={formData.message}
+                onChange={handleChange}
+                required
               ></textarea>
             </div>
             <div className="mt-4 flex items-center justify-center">
-              {/* Button Animation */}
               <motion.div
                 className="relative group"
                 initial="hidden"
@@ -99,6 +132,9 @@ const Contact = () => {
                 </button>
               </motion.div>
             </div>
+            {statusMessage && (
+              <p className="text-center text-sm mt-4 text-white">{statusMessage}</p>
+            )}
           </div>
         </div>
       </motion.form>

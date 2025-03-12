@@ -73,11 +73,9 @@ const AboutMe = () => {
                             animate="visible"
                             className="my-2 max-w-xl py-6 font-light tracking-tight text-lg"
                         >
-                            I'm Ayush Girathe, born and raised in Nagpur, Maharashtra. I'm 19 years old and currently pursuing a BTech in Electronics and Telecommunications at Vishwakarma Institute of Technology. I'm passionate about technology, especially Machine Learning, and always eager to explore new advancements.<br /><br />
+                            I am currently pursuing B.Tech in Electronics and Telecommunication Engineering from Vishwakarma Institute of Technology, Pune, with a strong passion for technology. I am focused on honing my skills in Java, C, Machine Learning, SQL databases, and have a keen eye for UI/UX design. My curiosity and passion for technology drive me to continuously explore new tools, frameworks, and methodologies.
 
-                            Outside of academics, I'm a badminton player, swimmer, and dancer. My strengths include dedication, creativity, and adaptability, though my perfectionism sometimes challenges me. I love traveling, trying new cuisines, and meeting people from diverse backgrounds.<br /><br/>
-
-                            “Success is not final, failure is not fatal: it is the courage to continue that counts.” – Winston Churchill
+                            As an active member of the Web Development Team at IEEE VIT Pune, I’ve gained hands-on experience in developing web applications, collaborating with cross-functional teams, and solving complex technical problems. This role has greatly enhanced my technical skills and allowed me to improve my teamwork and communication abilities.  
                         </motion.p>
                     </div>
                 </div>

@@ -26,13 +26,13 @@ const Title = () => {
             initial="hidden"
             animate="visible"
             className="bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-500 bg-clip-text text-transparent text-2xl ml-11">
-              I am a Food connoisseur and binge-watch sitcoms
+              I am a tech enthusiast, passionate about crafting seamless digital experiences.
             </motion.span>
             <motion.p variants= {container(1)}
             initial="hidden"
             animate="visible"
              className="my-2 max-w-xl py-6 font-light tracking-tight ml-11">
-              I am a student at Vishwakarma Institute of Technology, Pune, pursuing a BTech in Electronics and Telecommunications. I am a dedicated learner exploring various facets of computer languages. I have developed proficiency in JavaScript, C, Java, and SQL. My goal is to leverage these skills to make meaningful contributions to the field of technology.
+              BTech student at VIT Pune, passionate about web development and programming. Proficient in JavaScript, C, Java, and SQL. Part of IEEE VIT Pune’s Web Development Team, building dynamic web solutions.
             </motion.p>
           </div>
         </div>
